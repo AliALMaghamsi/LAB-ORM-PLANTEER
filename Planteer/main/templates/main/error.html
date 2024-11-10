@@ -1,1 +1,18 @@
-error
+{% extends 'main/base.html' %}
+ {% load static %}
+
+
+
+
+{% block title %}ERROR {% endblock %}
+
+
+
+{% block content %}
+
+<div class="container-fluid">
+    <img src="{% static '/images/error.webp' %}" class="w-100" alt="">
+</div>
+    
+{% endblock content %}
+    

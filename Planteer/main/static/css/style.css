@@ -1,0 +1,15 @@
+
+
+.icon{
+    color: gray;
+}
+
+.top-content{
+    background-image: url('/static/images/back-ground.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    
+}

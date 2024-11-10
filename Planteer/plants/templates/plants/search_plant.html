@@ -1,1 +1,43 @@
-search
+{% extends 'main/base.html' %}
+
+
+{% block title %}
+    Results
+{% endblock  %}
+    
+{% block content %}
+
+{% if plants %}
+    <h1>Search Results : {{plants.count}}</h1>
+    <h5>Results for : {{request.GET.search}}</h5>
+{% else %}
+<p class="bg-danger p-3 rounded">No Results Found for {{request.GET.search}}</p>
+{% endif %}
+    
+<div class="container mt-2">
+    <div class="row mt-5">
+        {% for plant in plants %}
+        <div class="col-md-3 pt-3">
+            <div class="card d-flex flex-column h-100" style="width: 18rem;">
+                <div style="height: 200px; overflow: hidden;">
+                    <img src="{{ plant.image.url }}" class="card-img-top" alt="{{ plant.name }}" style="object-fit: cover; width: 100%; height: 100%;">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <a href="{% url 'plants:plant_detail_view' plant.id %}" class="text-decoration-none text-dark"><h5 class="card-title">{{ plant.name }}</h5></a>
+                    <div class="card-text ">    
+                        <p>Edible: {% if plant.is_edible %}YES{% else %}NO{% endif %}</p>
+                        <p>Category: {{ plant.get_category_display }}</p>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <a href="{% url 'plants:update_plant_view' plant.id %}" class="btn btn-primary mt-auto w-50">update</a>
+                        <a href="{% url 'plants:delete_plant_view' plant.id %}" class="btn btn-danger mt-auto w-50">Delete</a>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock  %}

@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+    
+</head>
+<body>
+    <header >
+        <a href="{% url 'main:home_view' %}"><h1>Plnteer</h1></a>
+        <nav class="header_nav">
+            <a href=""><h2>All Plants</h2></a>
+            <a href=""><h2>Contact US</h2></a>
+            <a href="" class="btn"><p>Add Plant</p></a>
+        </nav>
+    </header>
+    <main>
+        {% block contnet %}
+
+        {% endblock %}
+    </main>
+    <hr>
+    <footer>
+        
+        <div class="content">
+           <h1>Plnteer</h1>
+           <div class="icons">
+                <a href="">ins</a>
+                <a href="">twit</a>
+                <a href="">Linkedin</a>
+                <a href="">tube</a>
+           </div>
+        </div>
+        <div class="list">
+           
+            <div class="topic-1">
+                <h2>topic</h2>
+                <ul>
+                    
+                    <li>page</li>
+                    <li>page</li>
+                    <li>page</li>
+                </ul>
+            </div>
+            <div class="topic-1">
+                <h2>topic</h2>
+                <ul>
+                    
+                    <li>page</li>
+                    <li>page</li>
+                    <li>page</li>
+                </ul>
+            </div>
+            <div class="topic-1">
+                <h2>topic</h2>
+                <ul>
+                    
+                    <li>page</li>
+                    <li>page</li>
+                    <li>page</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
